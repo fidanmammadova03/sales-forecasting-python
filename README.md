@@ -1,33 +1,52 @@
 # 🔢 Sales Forecasting in Python
 
-Simple sales prediction model I built using Random Forest. Nothing fancy, just straight to the point.
+Simple notebook that predicts sales units using Random Forest. Nothing overcomplicated , just preprocessing, model training, and prediction. Everything is inside `salesEstimator.ipynb`.
+
+---
 
 ### 💡 What it does
 
-- I cleaned and processed the data (converted week into day/month/year)
-- Removed outliers (top 1% of sales units)
-- Encoded store_id and sku_id using one-hot
-- Compared 3 models: RandomForest, Ridge, and GradientBoosting
-- RandomForest gave the best RMSE, so I tuned it a bit and used it
-- Final model is trained and used to predict on `test.csv`
+- Reads and processes `train.csv` and `test.csv`
+- Converts `week` column to day/month/year
+- Removes top 1% outliers in `units_sold`
+- One-hot encodes `store_id` and `sku_id`
+- Compares 3 models: `RandomForest`, `Ridge`, and `GradientBoosting`
+- Chooses `RandomForest` based on best RMSE
+- Trains final model and makes predictions for `test.csv`
+- Outputs predictions as `test_predictions.csv`
+
+---
 
 ### 🛠️ Tech used
 
 - Python
-- pandas / scikit-learn
+- pandas
+- scikit-learn
 - RandomForestRegressor
-- Pipeline + ColumnTransformer
+- Pipelines (for preprocessing + modeling)
+
+---
 
 ### 📁 Files
 
-- `train.csv` — base training data
-- `test.csv` — test data to make predictions on
-- `test_predictions.csv` — final output file
+| File | Description |
+|------|-------------|
+| `salesEstimator.ipynb` | Full notebook with preprocessing, modeling, and prediction logic |
+| `train.csv` | Raw training data |
+| `test.csv` | Test set for prediction |
+| `test_predictions.csv` | Model's predicted sales units |
+| `.gitignore` | Ignores system folders like `.ipynb_checkpoints` |
+
+---
 
 ### 🚀 How to run
 
-Make sure you have `train.csv` and `test.csv` in the same folder.
+This project runs as a notebook:
 
-```bash
-pip install -r requirements.txt
-python model_train.py
+1. Open `salesEstimator.ipynb` in Jupyter or VS Code
+2. Run all cells step by step
+3. Output file `test_predictions.csv` will be created in the same folder
+
+---
+
+That’s it . clear and compact. 
